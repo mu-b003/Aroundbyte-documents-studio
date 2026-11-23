@@ -305,6 +305,32 @@ label.check-row input[type=checkbox]{flex:none;margin:0}
 .tile.tool-tile::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(255,200,0,.08)}
 .tile.tool-tile:hover{border-color:var(--y);box-shadow:0 18px 46px rgba(0,0,0,.65),0 0 34px rgba(255,200,0,.22),0 0 0 1px rgba(255,200,0,.35)}
 .tile.tool-tile:focus-visible{outline:2px solid var(--y);outline-offset:3px}
+.tile.tool-tile:not(.tool-tile-text) .tile-copy{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex:1 0 auto;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  min-height:88px;
+  padding:12px 15px 15px;
+  border-top:1px solid rgba(255,196,0,.30);
+  background:linear-gradient(180deg,rgba(255,255,255,.018),transparent 75%);
+  text-align:center;
+}
+.tile.tool-tile:not(.tool-tile-text) .tile-copy b{
+  color:#f0eee8;
+  font-size:clamp(13px,1vw,15px);
+  font-weight:700;
+  line-height:1.65;
+}
+.tile.tool-tile:not(.tool-tile-text) .tile-copy small{
+  color:#b9b7ae;
+  font-size:12px;
+  line-height:1.7;
+}
 .tile-art{display:block;width:100%;aspect-ratio:2.32/1;object-fit:cover;object-position:center;background:#000;transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .3s ease}
 .tile.tool-tile:hover .tile-art{transform:scale(1.025);filter:saturate(1.1) brightness(1.06)}
 
@@ -597,4 +623,143 @@ dialog.abie-dialog{width:min(920px,96vw);max-width:96vw;max-height:92vh;padding:
   .tool-article-content h3 {
     margin-top: 21px;
   }
+}
+
+
+/* ==========================================================================
+   AroundByte PDF — QR Studio inspired home tool cards
+   CSS-only home-card redesign. Existing artwork, links and app behavior remain.
+   ========================================================================== */
+.tiles{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));
+  align-items:stretch;
+  gap:16px;
+}
+.tile.tool-tile{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  min-width:0;
+  min-height:258px;
+  height:100%;
+  padding:0;
+  overflow:hidden;
+  isolation:isolate;
+  color:#f4f4f5;
+  background:
+    radial-gradient(ellipse at 18% 100%,rgba(255,196,0,.13),transparent 58%),
+    linear-gradient(155deg,#0b0b0b 0%,#030303 72%);
+  border:1px solid #806300;
+  border-radius:17px;
+  box-shadow:0 12px 32px rgba(0,0,0,.58),inset 0 0 0 1px rgba(255,196,0,.035);
+  text-decoration:none;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease,background .22s ease;
+}
+.tile.tool-tile::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:0;
+  inset-inline-start:22%;
+  width:5px;
+  height:13px;
+  background:linear-gradient(180deg,#ffe45b,#d49d00);
+  box-shadow:0 0 14px rgba(255,196,0,.48);
+  pointer-events:none;
+}
+.tile.tool-tile::after{
+  content:none;
+  display:none;
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex:1 0 auto;
+  align-items:center;
+  justify-content:center;
+  min-height:88px;
+  padding:13px 16px 16px;
+  border:0;
+  border-top:1px solid rgba(255,196,0,.30);
+  border-radius:0;
+  box-shadow:inset 0 1px 0 rgba(255,196,0,.035);
+  color:#f0eee8;
+  font-size:clamp(13px,1vw,15px);
+  font-weight:650;
+  line-height:1.8;
+  text-align:center;
+  direction:inherit;
+  overflow-wrap:anywhere;
+  background:linear-gradient(180deg,rgba(255,255,255,.018),transparent 75%);
+}
+.tile-art{
+  position:relative;
+  z-index:1;
+  display:block;
+  flex:0 0 auto;
+  width:100%;
+  height:auto;
+  aspect-ratio:2.32/1;
+  max-height:none;
+  object-fit:cover;
+  object-position:center;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 18% 100%,rgba(255,196,0,.18),transparent 58%),
+    #050505;
+  border:0;
+  border-radius:0;
+  transition:transform .38s cubic-bezier(.2,.7,.2,1),filter .3s ease;
+}
+.tile.tool-tile:hover{
+  transform:translateY(-4px);
+  border-color:#ffc400;
+  background:
+    radial-gradient(ellipse at 18% 100%,rgba(255,196,0,.19),transparent 58%),
+    #050505;
+  box-shadow:0 18px 42px rgba(0,0,0,.68),0 0 26px rgba(255,196,0,.18),inset 0 0 0 1px rgba(255,196,0,.20);
+}
+.tile.tool-tile:hover .tile-art{
+  transform:scale(1.018);
+  filter:brightness(1.07) saturate(1.08);
+}
+.tile.tool-tile:focus-visible{
+  outline:2px solid #ffc400;
+  outline-offset:4px;
+}
+.tile.tool-tile-text{
+  min-height:258px;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(ellipse at 18% 100%,rgba(255,196,0,.15),transparent 60%),
+    linear-gradient(155deg,#0b0b0b,#030303);
+}
+.tile.tool-tile-text::before{height:13px}
+.tile.tool-tile-text::after{display:none}
+.tile-copy{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;text-align:center}
+.tile-copy b{color:#f4f4f5;font-size:15px;font-weight:700;line-height:1.65}
+.tile-copy small{color:#b9b7ae;font-size:12px;line-height:1.8}
+.tile.tool-tile-text:hover{border-color:#ffc400}
+@media(max-width:900px){
+  .tiles{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:13px}
+  .tile.tool-tile,.tile.tool-tile-text{min-height:242px}
+  .tile.tool-tile::after{min-height:82px;padding:11px 13px}
+}
+@media(max-width:560px){
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .tile.tool-tile,.tile.tool-tile-text{min-height:210px;border-radius:14px}
+  .tile-art{aspect-ratio:2.05/1}
+  .tile.tool-tile::after{min-height:76px;padding:9px 10px;font-size:12px;line-height:1.65}
+  .tile.tool-tile-text{padding:14px}
+  .tile-copy b{font-size:13px}
+  .tile-copy small{font-size:11px}
+}
+@media(max-width:380px){
+  .tiles{grid-template-columns:1fr}
+  .tile.tool-tile,.tile.tool-tile-text{min-height:230px}
+  .tile-art{aspect-ratio:2.32/1}
+}
+@media(prefers-reduced-motion:reduce){
+  .tile.tool-tile,.tile-art{transition:none}
 }
