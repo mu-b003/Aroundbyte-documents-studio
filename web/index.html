@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#000000">
+<title>AroundByte Documents — Free Online PDF Tools</title>
+<meta name="description" content="Create, merge, organize, extract, rotate, sign, redact and compress PDFs; fill forms, convert PDF text to Word, and export PDF pages to JPG or PNG. Private browser-based tools.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pdf.aroundbyte.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AroundByte Documents — Free Online PDF Tools">
+<meta property="og:description" content="Free, private document and PDF tools that run in your browser.">
+<meta property="og:url" content="https://pdf.aroundbyte.com/">
+<link rel="icon" type="image/png" href="assets/aroundbyte-icon.png">
+<link rel="stylesheet" href="css/app.css">
+<script src="vendor/pdf-lib.min.js"></script>
+<script src="vendor/pdf.min.js"></script>
+<script src="vendor/jszip.min.js"></script>
+</head>
+<body>
+<div class="app">
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="AroundByte Documents - Home"><img class="brand-logo" src="assets/aroundbyte-documents-logo.png" alt="AroundByte Documents"></a>
+    <nav class="primary-nav" aria-label="Main navigation">
+      <details class="tools-dropdown" id="toolsDropdown">
+        <summary id="toolsMenuLabel">PDF Tools <span class="chevron" aria-hidden="true">⌄</span></summary>
+        <nav id="nav" aria-label="PDF tools"></nav>
+      </details>
+      <a href="#about" id="aboutNav">About</a>
+      <a href="contact.html" id="contactNav">Contact</a>
+      <a href="#recent" id="recentNav">Recent</a>
+      <a href="#settings" id="settingsNav" aria-label="Settings" title="Settings">⚙</a>
+      <button id="lang" class="btn ghost"></button>
+    </nav>
+  </header>
+  <div class="ad ad-top" data-ad-slot="top" aria-label="Advertisement">
+    <script>
+      atOptions = {
+        'key' : 'fac60867b02293c86d42fd40a4b15d9b',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="https://bauval.org/22/fac60867b02293c86d42fd40a4b15d9b"></script>
+  </div>
+  <main>
+    <header class="top">
+      <div class="top-copy"><h1 id="title"></h1><p id="desc"></p></div>
+      <a id="toolBack" class="tool-back" href="#home" hidden aria-label="Back to all PDF tools">
+        <span class="tool-back-arrow" aria-hidden="true">←</span>
+        <span id="toolBackLabel">All PDF tools</span>
+      </a>
+    </header>
+    <section id="view"></section>
+    <div class="ad" data-ad-slot="bottom" hidden></div>
+    <footer class="app-footer">
+      <div class="app-footer-links">
+        <a href="about.html" data-legal="about">About Us</a>
+        <a href="contact.html" data-legal="contact">Contact Us</a>
+        <a href="privacy.html" data-legal="privacy">Privacy Policy</a>
+        <a href="terms.html" data-legal="terms">Terms of Use</a>
+        <a href="cookies.html" data-legal="cookies">Cookie Policy</a>
+        <a href="disclaimer.html" data-legal="disclaimer">Disclaimer</a>
+      </div>
+      <span>© <span id="footerYear"></span> AroundByte</span>
+    </footer>
+  </main>
+</div>
+<dialog id="dlg"></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
